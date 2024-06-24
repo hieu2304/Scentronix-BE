@@ -12,14 +12,14 @@ import { isValidRequest } from "../resources/util";
 // Get list server valid
 export const getServer = async (server: Server): Promise<Server> => {
   try {
-    const res =  await axios.get(server.url,
+    const res = await axios.get(server.url,
       {
         timeout: 20,
         validateStatus: (status_1) => {
           return isValidRequest(status_1);
         },
       });
-    console.log(res)  
+    console.log(res)
     return await Promise.resolve(server);
   } catch (error) {
     return await Promise.reject(error);
